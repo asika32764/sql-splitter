@@ -1,4 +1,4 @@
-# SQL Splitter as Iterator
+# SQL Splitter as Stream/Iterator
 
 This is a class that can split BIG SQL file or string as iterator so that can help us safe memory when importing SQL to database.
 
