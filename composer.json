@@ -1,0 +1,40 @@
+{
+    "name": "asika/sql-splitter",
+    "description": "This is a class that can split BIG SQL file or string as iterator so that can help us safe memory when importing SQL to database.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Simon Asika",
+            "email": "asika32764@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "psr/http-message": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "Asika\\SqlSplitter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Asika\\SqlSplitter\\Test\\": "test/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.0.10"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "windwalker/http": "^3.4",
+        "windwalker/test": "^3.4"
+    }
+}
