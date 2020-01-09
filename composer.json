@@ -1,6 +1,6 @@
 {
     "name": "asika/sql-splitter",
-    "description": "This is a class that can split BIG SQL file or string as iterator so that can help us safe memory when importing SQL to database.",
+    "description": "This is a class that can split BIG SQL file or string as iterator so that can help us save memory when importing SQL to database.",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "beta",
