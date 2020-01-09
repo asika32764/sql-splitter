@@ -4,3 +4,4 @@ phpunit.xml
 
 # Lib
 vendor
+composer.lock
