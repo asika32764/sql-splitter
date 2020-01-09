@@ -9,6 +9,7 @@
 
 namespace Asika\SqlSplitter;
 
+use Generator;
 use Psr\Http\Message\StreamInterface;
 
 /**
@@ -21,9 +22,9 @@ class SqlSplitter
      *
      * @param  string  $file
      *
-     * @return  \Generator
+     * @return  Generator
      */
-    public static function splitFromFile(string $file): \Generator
+    public static function splitFromFile(string $file): Generator
     {
         return static::splitFromStream(fopen($file, 'rb'));
     }
@@ -33,9 +34,9 @@ class SqlSplitter
      *
      * @param  string  $sql
      *
-     * @return  \Generator
+     * @return  Generator
      */
-    public static function splitSqlString(string $sql): \Generator
+    public static function splitSqlString(string $sql): Generator
     {
         return static::splitFromStream(static::stringToStream($sql));
     }
@@ -45,15 +46,15 @@ class SqlSplitter
      *
      * @param  StreamInterface  $stream
      *
-     * @return  \Generator
+     * @return  Generator
      */
-    public static function splitFromPsr7Stream(StreamInterface $stream): \Generator
+    public static function splitFromPsr7Stream(StreamInterface $stream): Generator
     {
         if (!$stream->isSeekable()) {
             return static::splitFromStream(static::stringToStream((string) $stream->getContents()));
         }
 
-        return (static function (StreamInterface $stream): \Generator {
+        return (static function (StreamInterface $stream): Generator {
             $start = 0;
             $open  = false;
             $char  = '';
@@ -108,9 +109,9 @@ class SqlSplitter
      *
      * @param  resource  $fp
      *
-     * @return  \Generator
+     * @return  Generator
      */
-    public static function splitFromStream($fp): \Generator
+    public static function splitFromStream($fp): Generator
     {
         if (!is_resource($fp)) {
             throw new \InvalidArgumentException('Argument 1 must be a resource.');
@@ -120,7 +121,7 @@ class SqlSplitter
             $fp = static::stringToStream((string) stream_get_contents($fp));
         }
 
-        return (static function ($fp): \Generator {
+        return (static function ($fp): Generator {
             $start = 0;
             $open  = false;
             $char  = '';
