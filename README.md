@@ -28,7 +28,7 @@ $queries = iterator_to_array($it);
 // Available methods
 SqlSplitter::splitSqlString('...');
 SqlSplitter::splitFromFile('path/to/fil.sql');
-SqlSplitter::splitFromPsr7Stream(new Stream('php://memory'));
+SqlSplitter::splitFromPsr7Stream(new Stream('zip://file.zip#backup.sql'));
 SqlSplitter::splitFromStream(fopen('s3://...', 'r'));
 ```
 
